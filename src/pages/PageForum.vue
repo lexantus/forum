@@ -22,8 +22,6 @@
 
               <p class="forum-description ">Recipes, Guides and Tips &amp; Tricks</p>
             </div>
-
-
             <div class="threads-count">
               <p class="count text-lead">1</p> threads
             </div>
@@ -49,8 +47,6 @@
 
 <script>
   import ThreadList from '@/components/ThreadList'
-  import sourceData from '@/data'
-
   export default {
     components: {ThreadList},
     props: {
@@ -61,10 +57,10 @@
     },
     computed: {
       forum () {
-        return sourceData.forums[this.id]
+        return this.$store.state.forums[this.id]
       },
       threads () {
-        return Object.values(sourceData.threads).filter(thread => thread.forumId === this.id)
+        return Object.values(this.$store.state.threads).filter(thread => thread.forumId === this.id)
       }
     }
   }

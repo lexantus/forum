@@ -18,7 +18,6 @@
 
 <script>
   import CategoryListItem from '@/components/CategoryListItem'
-  import sourceData from '@/data'
   export default {
     props: {
       id: {
@@ -28,7 +27,7 @@
     },
     data(){
       return {
-        category: sourceData.categories[this.id]
+        category: this.$store.state.categories[this.id]
       }
     },
     components: {CategoryListItem},
