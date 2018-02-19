@@ -15,33 +15,32 @@
     <nav class="navbar">
       <ul>
         <!--<li class="navbar-item">-->
-          <!--<a href="index.html">Home</a>-->
+        <!--<a href="index.html">Home</a>-->
         <!--</li>-->
         <!--<li class="navbar-item">-->
-          <!--<a href="category.html">Category</a>-->
+        <!--<a href="category.html">Category</a>-->
         <!--</li>-->
         <!--<li class="navbar-item">-->
-          <!--<a href="forum.html">Forum</a>-->
+        <!--<a href="forum.html">Forum</a>-->
         <!--</li>-->
         <!--<li class="navbar-item">-->
-          <!--<a href="thread.html">Thread</a>-->
+        <!--<a href="thread.html">Thread</a>-->
         <!--</li>-->
         <!--&lt;!&ndash; Show these option only on mobile&ndash;&gt;-->
         <!--<li class="navbar-item mobile-only">-->
-          <!--<a href="profile.html">My Profile</a>-->
+        <!--<a href="profile.html">My Profile</a>-->
         <!--</li>-->
         <!--<li class="navbar-item mobile-only">-->
-          <!--<a href="#">Logout</a>-->
+        <!--<a href="#">Logout</a>-->
         <!--</li>-->
 
         <li class="navbar-user">
           <a href="#">
-            <img class="avatar-small" src="https://pbs.twimg.com/profile_images/881260299420041217/GMVGlDea_400x400.jpg"
-                 alt="">
+            <img class="avatar-small" :src="user.avatar" alt="">
             <span>
-                        Alex Kyriakidis
-                        <img class="icon-profile" src="../assets/imgs/arrow-profile.svg" alt="">
-                    </span>
+              {{user.name}}
+              <img class="icon-profile" src="../assets/imgs/arrow-profile.svg" alt="">
+            </span>
           </a>
 
           <!-- dropdown menu -->
@@ -60,8 +59,12 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
-    name: 'the-navbar'
+    computed: {
+      ...mapGetters({'user': 'authUser'})
+    }
   }
 </script>
 
