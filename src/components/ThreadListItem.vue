@@ -28,6 +28,8 @@
   </div>
 </template>
 <script>
+  import { countObjectProps } from '@/utils'
+
   export default {
     props: {
       thread: {
@@ -37,7 +39,7 @@
     },
     computed: {
       repliesCount () {
-        return Object.keys(this.thread.posts).length - 1
+        return countObjectProps(this.thread.posts) - 1
       },
       user () {
         return this.$store.state.users[this.thread.userId]
